@@ -1,6 +1,6 @@
 # ბაზალტი — სამშენებლო კომპანიის ციფრული შოურუმი
 
-სუფთა React (JavaScript), Create React App (react-scripts) — Vite-ის გარეშე. გარე ბიბლიოთეკები არ გამოიყენება — მხოლოდ react და react-dom. თითოეულ კომპონენტს თავისი საქაღალდე და თავისი CSS Module აქვს.
+სუფთა React (JavaScript), Create React App (react-scripts). გარე ბიბლიოთეკები არ გამოიყენება — მხოლოდ react და react-dom. თითოეულ კომპონენტს თავისი საქაღალდე და თავისი CSS Module აქვს.
 
 ## გაშვება
 ```bash
