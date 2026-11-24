@@ -1,0 +1,143 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 28px 22px;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  transition: background var(--transition);
+}
+
+.card:hover {
+  background: #fbfcfb;
+}
+
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -4px;
+}
+
+.sold {
+  opacity: 0.6;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.free {
+  background: var(--status-free);
+}
+
+.reserved {
+  background: var(--status-reserved);
+}
+
+.sold .status,
+.status.sold {
+  background: var(--status-sold);
+}
+
+.star {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition);
+}
+
+.card:hover .star,
+.starActive {
+  opacity: 1;
+}
+
+.starActive {
+  background: var(--color-accent);
+}
+
+.plan {
+  width: 100%;
+  max-width: 320px;
+  margin: 18px 0 20px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .plan {
+  transform: scale(1.03);
+}
+
+.area {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.type {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+
+.meta {
+  display: flex;
+  gap: 28px;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.meta > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.footer strong {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+}
+
+@media (hover: none) {
+  .star {
+    opacity: 1;
+  }
+}

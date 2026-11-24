@@ -1,0 +1,33 @@
+:root {
+  /* ფერები */
+  --color-bg: #cfdcd6;
+  --color-bg-soft: #e4ece8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f3f5f4;
+  --color-primary: #234a40;
+  --color-primary-dark: #18362e;
+  --color-accent: #dfe6c5;
+  --color-accent-strong: #c9d6a0;
+  --color-text: #1f2d29;
+  --color-text-muted: #5d6f69;
+  --color-text-light: #ffffff;
+  --color-border: #d7dfdb;
+
+  /* სტატუსები */
+  --status-free: #3f8f5b;
+  --status-reserved: #c79a2b;
+  --status-sold: #b4473c;
+
+  /* ტიპოგრაფია */
+  --font-body: 'Noto Sans Georgian', system-ui, sans-serif;
+  --font-heading: 'Noto Serif Georgian', 'Noto Sans Georgian', serif;
+
+  /* ზომები */
+  --container: 1320px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 10px 30px rgba(24, 54, 46, 0.08);
+  --transition: 0.3s ease;
+}

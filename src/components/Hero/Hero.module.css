@@ -1,0 +1,174 @@
+.hero {
+  padding: 0 10px;
+}
+
+.frame {
+  position: relative;
+  height: calc(100vh - 80px);
+  min-height: 560px;
+  max-height: 860px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1s ease, transform 6s ease;
+}
+
+.slideActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 20, 17, 0.65) 0%, rgba(10, 20, 17, 0.15) 55%, rgba(10, 20, 17, 0) 100%),
+    linear-gradient(0deg, rgba(10, 20, 17, 0.5) 0%, rgba(10, 20, 17, 0) 40%);
+}
+
+.content {
+  position: absolute;
+  left: 48px;
+  bottom: 100px;
+  max-width: 540px;
+  color: var(--color-text-light);
+  animation: fadeUp 0.8s ease both;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.text {
+  margin: 18px 0 28px;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cards {
+  position: absolute;
+  top: 18%;
+  right: -60px;
+  display: flex;
+  gap: 40px;
+}
+
+.card {
+  width: 300px;
+  text-align: left;
+  color: var(--color-text-light);
+}
+
+.cardImage {
+  height: 380px;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition);
+}
+
+.card:hover .cardImage {
+  transform: translateY(-6px);
+}
+
+.cardLabel {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.controls {
+  position: absolute;
+  right: 40px;
+  bottom: 96px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  margin-right: 12px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: width var(--transition), background var(--transition);
+}
+
+.dotActive {
+  width: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-text-light);
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: var(--color-text-light);
+  transition: background var(--transition), color var(--transition);
+}
+
+.arrow:hover {
+  background: var(--color-text-light);
+  color: var(--color-primary);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .cards {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .frame {
+    height: 78vh;
+    min-height: 520px;
+    border-radius: var(--radius-md);
+  }
+
+  .content {
+    left: 20px;
+    right: 20px;
+    bottom: 120px;
+  }
+
+  .controls {
+    left: 20px;
+    right: auto;
+    bottom: 60px;
+  }
+}

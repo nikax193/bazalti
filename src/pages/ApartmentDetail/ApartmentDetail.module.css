@@ -1,0 +1,333 @@
+.sheet {
+  padding: 40px 50px 64px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.views {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.view {
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+
+.viewActive {
+  background: var(--color-bg-soft);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.pdf {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: border-color var(--transition);
+}
+
+.pdf:hover,
+.iconBtn:hover {
+  border-color: var(--color-primary);
+}
+
+.iconBtn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-primary);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.iconBtnActive {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.title {
+  margin: 14px 0 6px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.printHeader {
+  display: none;
+}
+
+.project {
+  margin: 0 0 24px;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.projectLabel {
+  color: var(--color-text-muted);
+}
+
+.body {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+}
+
+.plan {
+  width: 100%;
+  max-width: 640px;
+  animation: fadeIn 0.4s ease;
+}
+
+.loading3d {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 520px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-soft);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.more {
+  margin-top: 32px;
+}
+
+.moreToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.moreToggle span {
+  display: inline-block;
+  margin-top: -6px;
+  transition: transform var(--transition);
+}
+
+.moreToggle .chevronUp {
+  transform: rotate(180deg) translateY(-6px);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-border);
+  animation: fadeIn 0.3s ease;
+}
+
+.details > div {
+  padding: 16px 18px;
+  background: var(--color-surface);
+}
+
+.details dt {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.details dd {
+  margin-top: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.similar {
+  margin-top: 64px;
+}
+
+.similarHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.similarHead h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 100px 0;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1100px) {
+  .details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .body {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+
+  .stage {
+    width: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .sheet {
+    padding: 24px 16px 40px;
+    border-radius: var(--radius-md);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PDF / ბეჭდვა: მხოლოდ გეგმა და ინფორმაცია */
+@media print {
+  .sheet {
+    padding: 0;
+  }
+
+  .printHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .printHeader > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .printBrand {
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    color: var(--color-primary);
+  }
+
+  .printContacts {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+  }
+
+  .printApt {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    color: var(--color-primary);
+  }
+
+  .printApt span {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .printApt strong {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  /* A4 გვერდი ვიწროა (<900px), ამიტომ განლაგებას აქ ცალკე ვაფიქსირებთ: მარცხნივ ბარათი, მარჯვნივ გეგმა */
+  .body {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .stage {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    width: auto;
+  }
+
+  .plan {
+    max-width: 100%;
+    animation: none;
+  }
+
+  .project {
+    margin-bottom: 16px;
+  }
+}

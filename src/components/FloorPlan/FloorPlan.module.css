@@ -1,0 +1,69 @@
+.plan {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.room {
+  stroke: #3a4844;
+  stroke-width: 1.6;
+}
+
+.wall {
+  fill: none;
+  stroke: #2a3632;
+  stroke-width: 4;
+}
+
+.window {
+  stroke: #9cc6d6;
+  stroke-width: 4;
+}
+
+.balcony {
+  stroke: #3a4844;
+  stroke-width: 1.2;
+}
+
+.furniture {
+  fill: rgba(255, 255, 255, 0.75);
+  stroke: #9aa8a3;
+  stroke-width: 1;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 8px;
+  fill: #4a5a55;
+}
+
+.area {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  fill: var(--color-primary);
+}
+
+.balconyLabel {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  fill: #5b4a28;
+}
+
+.pill {
+  fill: var(--color-primary);
+}
+
+.detailLabel {
+  font-family: var(--font-body);
+  font-size: 6.5px;
+  fill: #4a5a55;
+}
+
+.pillText {
+  font-family: var(--font-body);
+  font-size: 5.6px;
+  font-weight: 600;
+  fill: #fff;
+}

@@ -1,0 +1,8 @@
+# Apache: ყველა მისამართი (მაგ. /apartments/A-101) index.html-ზე გადადის,
+# რომ გვერდის განახლებისას (F5) 404 არ ამოაგდოს. მუშაობს ქვესაქაღალდეშიც.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . index.html [L]
+</IfModule>

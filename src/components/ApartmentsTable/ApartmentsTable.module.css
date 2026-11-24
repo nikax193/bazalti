@@ -1,0 +1,76 @@
+.wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.table th {
+  padding: 14px 16px;
+  background: var(--color-surface-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+
+.table td {
+  padding: 14px 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.table tbody tr {
+  transition: background var(--transition);
+}
+
+.table tbody tr:hover {
+  background: #f8faf9;
+}
+
+.id {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.id a:hover {
+  text-decoration: underline;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.status {
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.free {
+  background: var(--status-free);
+}
+
+.reserved {
+  background: var(--status-reserved);
+}
+
+.sold {
+  background: var(--status-sold);
+}
+
+.star {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.starActive {
+  color: var(--status-reserved);
+}

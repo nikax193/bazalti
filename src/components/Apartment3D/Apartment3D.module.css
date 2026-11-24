@@ -1,0 +1,276 @@
+/* კამერის ცვლადები რეგისტრირებულია, რომ მათი ანიმაცია (და წარწერების მობრუნება) შეუფერხებლად მოხდეს */
+@property --yaw {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --tilt {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --zoom {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+.wrap {
+  width: 100%;
+  animation: fadeIn 0.4s ease;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: radial-gradient(ellipse at 50% 40%, #f6f8f7 0%, #e4ece8 70%, #d9e3de 100%);
+  perspective: 1800px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  outline: none;
+}
+
+.stage:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+}
+
+.grabbing {
+  cursor: grabbing;
+}
+
+.fit {
+  transform-style: preserve-3d;
+  margin-top: 40px;
+}
+
+.world {
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  transform: rotateX(var(--tilt)) rotateZ(var(--yaw)) scale3d(var(--zoom), var(--zoom), var(--zoom));
+}
+
+.animate {
+  transition: --yaw 0.9s cubic-bezier(0.22, 0.8, 0.3, 1), --tilt 0.9s cubic-bezier(0.22, 0.8, 0.3, 1),
+    --zoom 0.4s ease;
+}
+
+.face {
+  position: absolute;
+  transform-origin: 0 0;
+  backface-visibility: visible;
+}
+
+.glass {
+  background-color: rgba(168, 208, 222, 0.28);
+  background-image: linear-gradient(90deg, rgba(58, 72, 68, 0.75) 0 2px, transparent 2px);
+  border-left: 2px solid rgba(58, 72, 68, 0.75);
+  border-right: 2px solid rgba(58, 72, 68, 0.75);
+  pointer-events: none;
+}
+
+/* ---- იატაკი ---- */
+.shadow {
+  position: absolute;
+  transform: translateZ(-3px);
+  background: radial-gradient(closest-side, rgba(24, 54, 46, 0.22), rgba(24, 54, 46, 0));
+  pointer-events: none;
+}
+
+.slab {
+  position: absolute;
+  transform: translateZ(-1px);
+  background: #b9c6c0;
+  border-radius: 2px;
+}
+
+.floor {
+  position: absolute;
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floorWood {
+  background-color: #d9c19b;
+  background-image: repeating-linear-gradient(90deg, rgba(110, 72, 36, 0.14) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.09) 0 7px, transparent 7px 14px);
+}
+
+.floorTile {
+  background-color: #e3ebe8;
+  background-image: linear-gradient(rgba(90, 110, 104, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 110, 104, 0.18) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.floorStone {
+  background-color: #ebe6dc;
+  background-image: linear-gradient(rgba(120, 110, 90, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 110, 90, 0.16) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.floorDeck {
+  background-color: #c9ad78;
+  background-image: repeating-linear-gradient(90deg, rgba(90, 62, 30, 0.22) 0 2px, transparent 2px 14px);
+}
+
+.floorHover {
+  filter: brightness(1.07);
+  box-shadow: inset 0 0 0 3px var(--color-primary);
+}
+
+/* ---- წარწერები ---- */
+.anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+  transform: translateZ(var(--lift)) rotateZ(calc(-1 * var(--yaw))) rotateX(calc(-1 * var(--tilt)));
+  pointer-events: none;
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 5px 4px 10px;
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(24, 54, 46, 0.16);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.labelArea {
+  padding: 2px 8px;
+  font-weight: 600;
+  font-size: 11px;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+.label:not(:has(.labelName)) {
+  padding-left: 5px;
+}
+
+.labelActive {
+  transform: translate(-50%, -100%) scale(1.15);
+  background: var(--color-accent);
+}
+
+.labelBalcony .labelArea {
+  background: #8a6a33;
+}
+
+/* ---- მართვა ---- */
+.hint {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.controls {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  transform: translateX(-50%);
+  background: var(--color-surface);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+}
+
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  transition: background var(--transition);
+}
+
+.controls button:hover {
+  background: var(--color-bg-soft);
+}
+
+.controls .textBtn {
+  padding: 0 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.sep {
+  width: 1px;
+  height: 18px;
+  margin: 0 4px;
+  background: var(--color-border);
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .stage {
+    height: 400px;
+  }
+
+  .hint {
+    display: none;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    transition: none;
+  }
+}
+
+@media print {
+  .controls,
+  .hint {
+    display: none;
+  }
+}

@@ -1,0 +1,23 @@
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.sep {
+  margin-right: 4px;
+  font-size: 0.9rem;
+}
